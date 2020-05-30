@@ -35,7 +35,9 @@ git remote add upstream git@github.com:SubstrateCourse/<your-team>.git
 git checkout <your-name>
 ```
 
-替换`your-name`为自己的名字，如果没有，联系助教进行添加。
+替换`your-name`为自己的名字或Github账户名字，如果没有，联系助教进行添加。如何查找：
+
+![branch](branch.png)
 
 2. 之后在本地，更新远端的代码到本地，Git命令为：
 
@@ -43,7 +45,7 @@ git checkout <your-name>
 git pull upstream <your-name>
 ```
 
-替换`your-name`为自己的名字，注意这里**不能**是master分支。
+替换`your-name`为自己的名字或Github账户名字，注意这里**不能**是master分支。
 
 3. 接着在本地，创建一个新的分支，Git命令为：
 
@@ -61,11 +63,14 @@ git checkout -b <lesson-n>
 // 添加你需要提交的作业
 git add -p
 
+// 添加某个文件
+git add <file-name>
+
 // commit 修改到本地
 git commit -m "homework for lesson n"
 ```
 
-注意，你也可以包含多个commit记录，防止写作业的时候代码丢失，评分只会按照最终的代码结果。`git add <file-name>`可以添加某个文件。
+注意，你也可以包含多个commit记录，防止写作业的时候代码丢失，评分只会按照最终的代码结果。
 
 6. push到自己的Github仓库里，Git命令为：
 
