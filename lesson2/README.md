@@ -25,7 +25,11 @@
 ### 参考资料
 
 ["Proof Of Existence" dApp](https://www.substrate.io/tutorials/build-a-dapp/v2.0.0-rc2)
+
 [Rust pattern match](https://doc.rust-lang.org/book/ch18-00-patterns.html)
+
 [Enum](https://doc.rust-lang.org/book/ch06-01-defining-an-enum.html)
+
 [Recoverable Errors with Result](https://doc.rust-lang.org/book/ch09-02-recoverable-errors-with-result.html)
+
 [Generic Types, Traits](https://doc.rust-lang.org/book/ch10-00-generics.html)
