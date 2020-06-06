@@ -147,10 +147,18 @@ package = 'frame-system'
 tag = 'v2.0.0-rc2'
 version = '2.0.0-rc2'
 
+# template依赖
 [dependencies.template]
 default-features = false
 package = 'pallet-template'
 path = '../pallets/template'
+version = '2.0.0-rc2'
+
+# 引入poe依赖
+[dependencies.poe]
+default-features = false
+package = 'pallet-poe'
+path = '../pallets/poe'
 version = '2.0.0-rc2'
 
 [dependencies.timestamp]
@@ -195,6 +203,7 @@ std = [
     'timestamp/std',
     'transaction-payment/std',
     'template/std',
+    'poe/std',  # 增加标签
 ]
 
 [build-dependencies.wasm-builder-runner]
