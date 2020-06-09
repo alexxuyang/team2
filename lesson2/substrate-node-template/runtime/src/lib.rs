@@ -257,6 +257,12 @@ impl template::Trait for Runtime {
 	type Event = Event;
 }
 
+/// 对配置接口进行实现
+impl poe::Trait for Runtime{
+	type Event = Event;
+}
+
+
 construct_runtime!(
 	pub enum Runtime where
 		Block = Block,
@@ -273,6 +279,8 @@ construct_runtime!(
 		Sudo: sudo::{Module, Call, Config<T>, Storage, Event<T>},
 		// Used for the module template in `./template.rs`
 		TemplateModule: template::{Module, Call, Storage, Event<T>},
+		// 引入poe对应模块的操作信息  Module: 模块  Call：调用函数  Storage：存储项  Event<T>：事件  Error不需要额外引入
+		PoeModule: poe::{Module, Call, Storage, Event<T>},
 	}
 );
 
