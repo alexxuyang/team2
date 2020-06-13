@@ -14,6 +14,7 @@ function Main(props) {
   const [digest, setDigest] = useState('');
   const [owner, setOwner] = useState('');
   const [blockNumber, setBlockNumber] = useState(0);
+  const [AccountId, setAccountId] = useState('');
 
   useEffect(() => {
     let unsubscribe;
@@ -57,6 +58,14 @@ function Main(props) {
           />
         </Form.Field>
         <Form.Field>
+          <Input
+            label='transfer to AccountId'
+            state='newValue'
+            type='text'
+            onChange={(_, { value }) => setAccountId(value)}
+          />
+        </Form.Field>
+        <Form.Field>
           <TxButton
             accountPair={accountPair}
             label='Create Claim'
@@ -80,6 +89,18 @@ function Main(props) {
               callable: 'revokeClaim',
               inputParams: [digest],
               paramFields: [true]
+            }}
+          />
+          <TxButton
+            accountPair={accountPair}
+            label='Transfer Claim'
+            setStatus={setStatus}
+            type='SIGNED-TX'
+            attrs={{
+              palletRpc: "poeModule",
+              callable: "transferClaim",
+              inputParams: [digest, AccountId],
+              paramFields: [true],
             }}
           />
         </Form.Field>
