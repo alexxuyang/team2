@@ -44,19 +44,28 @@ impl system::Trait for Test {
 	type AvailableBlockRatio = AvailableBlockRatio;
 	type Version = ();
 	type ModuleToIndex = ();
-	type AccountData = ();
+	type AccountData = balances::AccountData<u128>;
 	type OnNewAccount = ();
 	type OnKilledAccount = ();
 }
-
 parameter_types! {
-	pub const MaxClaimLength: u32 = 6;
+    pub const MaxClaimLength: u32 = 6;
+    pub const ExistentialDeposit: u64 = 1;
+}
+impl balances::Trait for Test {
+	type Balance = u128;
+	type DustRemoval = ();
+	type Event = ();
+	type ExistentialDeposit = ExistentialDeposit;
+	type AccountStore = System;
 }
 impl Trait for Test {
 	type Event = ();
-	type MaxClaimLength = MaxClaimLength;
+    type Currency = balances::Module<Test>;
+    type MaxClaimLength = MaxClaimLength;
 }
-pub type PoeModule = Module<Test>;
+pub type TemplateModule = Module<Test>;
+pub type System = system::Module<Test>;
 
 // This function basically just builds a genesis storage key/value store according to
 // our desired mockup.

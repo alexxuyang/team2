@@ -252,21 +252,18 @@ impl sudo::Trait for Runtime {
 	type Call = Call;
 }
 
-/// Used for the module template in `./template.rs`
 impl template::Trait for Runtime {
 	type Event = Event;
 }
 
-// 附加题答案
 parameter_types! {
-	pub const MaxClaimLength: u32 = 6;
+    pub const MaxClaimLength: u32 = 256; 
 }
 
 impl poe::Trait for Runtime {
 	type Event = Event;
-	
-	// 附加题答案
-	type MaxClaimLength = MaxClaimLength;
+    type Currency = balances::Module<Runtime>;
+    type MaxClaimLength = MaxClaimLength;
 }
 
 construct_runtime!(
